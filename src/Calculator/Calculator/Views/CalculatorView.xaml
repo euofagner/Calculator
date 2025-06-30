@@ -11,8 +11,6 @@
         <ResourceDictionary>
             <Style x:Key="mainButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="HeightRequest" Value="90" />
-                <Setter Property="WidthRequest" Value="90" />
                 <Setter Property="CornerRadius" Value="20" />
                 <Setter Property="FontSize" Value="25" />
             </Style>
@@ -22,6 +20,7 @@
                 BasedOn="{StaticResource mainButton}"
                 TargetType="Button">
                 <Setter Property="TextColor" Value="#ff7717" />
+                <Setter Property="Opacity" Value=".9" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -35,7 +34,7 @@
         <Grid Grid.Row="1">
 
             <Grid
-                Padding="35"
+                Padding="25"
                 ColumnDefinitions="*, *, *, *"
                 ColumnSpacing="15"
                 RowDefinitions="*, *, *, *, *"
@@ -43,12 +42,14 @@
 
                 <Button
                     FontSize="25"
+                    Opacity=".9"
                     Style="{StaticResource orangeTxt}"
                     Text="AC" />
 
                 <ImageButton
                     Grid.Column="1"
                     HeightRequest="30"
+                    Opacity=".9"
                     Source="delete.png"
                     Style="{StaticResource mainButton}">
                     <ImageButton.Behaviors>
@@ -58,8 +59,10 @@
 
                 <ImageButton
                     Grid.Column="2"
-                    HeightRequest="45"
-                    Source="percentage.png">
+                    HeightRequest="20"
+                    Opacity=".9"
+                    Source="percentage.png"
+                    WidthRequest="20">
                     <ImageButton.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="#ff7717" />
                     </ImageButton.Behaviors>
@@ -67,8 +70,10 @@
 
                 <ImageButton
                     Grid.Column="3"
+                    HeightRequest="5"
+                    Opacity=".9"
                     Source="divide.png"
-                    WidthRequest="25">
+                    WidthRequest="5">
                     <ImageButton.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="#ff7717" />
                     </ImageButton.Behaviors>
@@ -77,20 +82,121 @@
                 <Button
                     Grid.Row="1"
                     Grid.Column="3"
-                    FontAttributes="Bold"
-                    FontSize="35"
+                    FontSize="40"
                     Style="{StaticResource orangeTxt}"
                     Text="x" />
 
                 <ImageButton
                     Grid.Row="2"
                     Grid.Column="3"
+                    HeightRequest="75"
+                    Opacity=".9"
                     Source="minus.png"
-                    WidthRequest="25">
+                    WidthRequest="60">
                     <ImageButton.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="#ff7717" />
                     </ImageButton.Behaviors>
                 </ImageButton>
+
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    FontSize="40"
+                    Style="{StaticResource orangeTxt}"
+                    Text="+" />
+
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="3"
+                    BackgroundColor="#ff7717"
+                    FontSize="50"
+                    HeightRequest="90"
+                    Opacity=".9"
+                    Style="{StaticResource orangeTxt}"
+                    Text="="
+                    TextColor="White"
+                    WidthRequest="90" />
+
+                <Button
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#ff7717"
+                    CornerRadius="20"
+                    FontSize="40"
+                    HeightRequest="90"
+                    Opacity=".9"
+                    Text="0"
+                    TextColor="White" />
+
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    BackgroundColor="Transparent"
+                    FontSize="60"
+                    HeightRequest="90"
+                    Style="{StaticResource orangeTxt}"
+                    Text="."
+                    WidthRequest="90" />
+
+                <Button
+                    Grid.Row="3"
+                    BackgroundColor="Transparent"
+                    FontSize="40"
+                    Text="1" />
+
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    FontSize="40"
+                    Text="2" />
+
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    BackgroundColor="Transparent"
+                    FontSize="40"
+                    Text="3" />
+
+                <Button
+                    Grid.Row="2"
+                    BackgroundColor="Transparent"
+                    FontSize="40"
+                    Text="4" />
+
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    FontSize="40"
+                    Text="5" />
+
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    BackgroundColor="Transparent"
+                    FontSize="40"
+                    Text="6" />
+
+                <Button
+                    Grid.Row="1"
+                    BackgroundColor="Transparent"
+                    FontSize="40"
+                    Text="7" />
+
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    FontSize="40"
+                    Text="8" />
+
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    BackgroundColor="Transparent"
+                    FontSize="40"
+                    Text="9" />
             </Grid>
         </Grid>
     </Grid>
