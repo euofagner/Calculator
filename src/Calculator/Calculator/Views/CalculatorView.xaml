@@ -4,7 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:Calculator.ViewModels"
     Title="Calculadora"
+    x:DataType="vm:CalculatorViewModel"
     BackgroundColor="{AppThemeBinding Light={StaticResource MainLightBackground},
                                       Dark={StaticResource Black}}">
 
@@ -13,7 +15,7 @@
             Padding="25,0"
             HorizontalOptions="End"
             Style="{StaticResource CalculationTxt}"
-            Text="0"
+            Text="{Binding Result}"
             VerticalOptions="End" />
 
         <Grid Grid.Row="1">
@@ -26,6 +28,7 @@
                 RowSpacing="0">
 
                 <Button
+                    Command="{Binding CleanFormulaCommand}"
                     FontAttributes="Bold"
                     FontSize="27"
                     Style="{StaticResource GreenIconsBtn}"
@@ -33,6 +36,7 @@
 
                 <Button
                     Grid.Column="1"
+                    Command="{Binding BackspaceCommand}"
                     FontAttributes="Bold"
                     FontSize="27"
                     Style="{StaticResource GreenIconsBtn}"
@@ -88,11 +92,11 @@
                     Grid.ColumnSpan="2"
                     BackgroundColor="#709884"
                     CornerRadius="20"
-                    WidthRequest="170"
                     FontSize="40"
                     HeightRequest="80"
                     Text="0"
-                    TextColor="White" />
+                    TextColor="White"
+                    WidthRequest="170" />
 
                 <Button
                     Grid.Row="4"

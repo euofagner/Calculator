@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Maui;
+﻿using Calculator.ViewModels;
+using Calculator.Views;
+using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 
 namespace Calculator
@@ -20,6 +22,9 @@ namespace Calculator
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+            builder.Services.AddTransient<CalculatorViewModel>();
+            builder.Services.AddTransient<CalculatorView>(); 
 
             return builder.Build();
         }

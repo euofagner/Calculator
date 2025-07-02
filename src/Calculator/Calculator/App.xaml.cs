@@ -1,4 +1,5 @@
-﻿using Calculator.Views;
+﻿using Calculator.ViewModels;
+using Calculator.Views;
 
 namespace Calculator
 {
@@ -11,7 +12,7 @@ namespace Calculator
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new CalculatorView());
+            return new Window(new CalculatorView(new CalculatorViewModel()));
         }
     }
 }
