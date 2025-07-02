@@ -5,98 +5,91 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="Calculadora"
-    BackgroundColor="Black">
+    BackgroundColor="{AppThemeBinding Light={StaticResource MainLightBackground},
+                                      Dark={StaticResource Black}}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="mainButton" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="Transparent" />
+            <Style x:Key="orangeTxt" TargetType="Button">
+                <Setter Property="TextColor" Value="#89a798" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource BtnDarkBackground}}" />
                 <Setter Property="CornerRadius" Value="20" />
-                <Setter Property="FontSize" Value="25" />
+                <Setter Property="WidthRequest" Value="80" />
+                <Setter Property="HeightRequest" Value="80" />
             </Style>
 
-            <Style
-                x:Key="orangeTxt"
-                BasedOn="{StaticResource mainButton}"
-                TargetType="Button">
-                <Setter Property="TextColor" Value="#ff7717" />
-                <Setter Property="Opacity" Value=".9" />
+            <Style x:Key="numbersTxt" TargetType="Button">
+                <Setter Property="WidthRequest" Value="80" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource BtnDarkBackground}}" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="HeightRequest" Value="80" />
+            </Style>
+
+            <Style x:Key="calculationTxt" TargetType="Label">
+                <Setter Property="FontSize" Value="50" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <Grid RowDefinitions=".35*, .65*">
-        <VerticalStackLayout>
-            <Label Text="100+100" />
-            <Label Text="200" />
-        </VerticalStackLayout>
+        <Label
+            Padding="25,0"
+            HorizontalOptions="End"
+            Style="{StaticResource calculationTxt}"
+            Text="0"
+            VerticalOptions="End" />
 
         <Grid Grid.Row="1">
 
             <Grid
                 Padding="25"
                 ColumnDefinitions="*, *, *, *"
-                ColumnSpacing="15"
+                ColumnSpacing="25"
                 RowDefinitions="*, *, *, *, *"
-                RowSpacing="15">
+                RowSpacing="0">
 
                 <Button
-                    FontSize="25"
-                    Opacity=".9"
+                    FontAttributes="Bold"
+                    FontSize="27"
                     Style="{StaticResource orangeTxt}"
                     Text="AC" />
 
-                <ImageButton
+                <Button
                     Grid.Column="1"
-                    HeightRequest="30"
-                    Opacity=".9"
-                    Source="delete.png"
-                    Style="{StaticResource mainButton}">
-                    <ImageButton.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="#ff7717" />
-                    </ImageButton.Behaviors>
-                </ImageButton>
+                    FontAttributes="Bold"
+                    FontSize="27"
+                    Style="{StaticResource orangeTxt}"
+                    Text="⌫" />
 
-                <ImageButton
+                <Button
                     Grid.Column="2"
-                    HeightRequest="20"
-                    Opacity=".9"
-                    Source="percentage.png"
-                    WidthRequest="20">
-                    <ImageButton.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="#ff7717" />
-                    </ImageButton.Behaviors>
-                </ImageButton>
+                    FontAttributes="Bold"
+                    FontSize="35"
+                    Style="{StaticResource orangeTxt}"
+                    Text="%" />
 
-                <ImageButton
+                <Button
                     Grid.Column="3"
-                    HeightRequest="5"
-                    Opacity=".9"
-                    Source="divide.png"
-                    WidthRequest="5">
-                    <ImageButton.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="#ff7717" />
-                    </ImageButton.Behaviors>
-                </ImageButton>
+                    FontSize="45"
+                    Style="{StaticResource orangeTxt}"
+                    Text="÷" />
 
                 <Button
                     Grid.Row="1"
                     Grid.Column="3"
                     FontSize="40"
                     Style="{StaticResource orangeTxt}"
-                    Text="x" />
+                    Text="×" />
 
-                <ImageButton
+                <Button
                     Grid.Row="2"
                     Grid.Column="3"
-                    HeightRequest="75"
-                    Opacity=".9"
-                    Source="minus.png"
-                    WidthRequest="60">
-                    <ImageButton.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="#ff7717" />
-                    </ImageButton.Behaviors>
-                </ImageButton>
+                    FontSize="45"
+                    Style="{StaticResource orangeTxt}"
+                    Text="−" />
 
                 <Button
                     Grid.Row="3"
@@ -108,94 +101,93 @@
                 <Button
                     Grid.Row="4"
                     Grid.Column="3"
-                    BackgroundColor="#ff7717"
-                    FontSize="50"
-                    HeightRequest="90"
-                    Opacity=".9"
-                    Style="{StaticResource orangeTxt}"
+                    BackgroundColor="#709884"
+                    CornerRadius="20"
+                    FontSize="45"
+                    HeightRequest="80"
                     Text="="
                     TextColor="White"
-                    WidthRequest="90" />
+                    WidthRequest="80" />
 
                 <Button
                     Grid.Row="4"
                     Grid.ColumnSpan="2"
-                    BackgroundColor="#ff7717"
+                    BackgroundColor="#709884"
                     CornerRadius="20"
                     FontSize="40"
-                    HeightRequest="90"
-                    Opacity=".9"
+                    HeightRequest="80"
                     Text="0"
                     TextColor="White" />
 
                 <Button
                     Grid.Row="4"
                     Grid.Column="2"
-                    BackgroundColor="Transparent"
-                    FontSize="60"
-                    HeightRequest="90"
-                    Style="{StaticResource orangeTxt}"
+                    BackgroundColor="#709884"
+                    CornerRadius="20"
+                    FontSize="50"
+                    HeightRequest="80"
                     Text="."
-                    WidthRequest="90" />
+                    TextColor="White"
+                    WidthRequest="80" />
 
                 <Button
                     Grid.Row="3"
-                    BackgroundColor="Transparent"
                     FontSize="40"
+                    Style="{StaticResource numbersTxt}"
                     Text="1" />
 
                 <Button
                     Grid.Row="3"
                     Grid.Column="1"
-                    BackgroundColor="Transparent"
                     FontSize="40"
+                    Style="{StaticResource numbersTxt}"
                     Text="2" />
 
                 <Button
                     Grid.Row="3"
                     Grid.Column="2"
-                    BackgroundColor="Transparent"
                     FontSize="40"
+                    Style="{StaticResource numbersTxt}"
                     Text="3" />
 
                 <Button
                     Grid.Row="2"
-                    BackgroundColor="Transparent"
                     FontSize="40"
+                    Style="{StaticResource numbersTxt}"
                     Text="4" />
 
                 <Button
                     Grid.Row="2"
                     Grid.Column="1"
-                    BackgroundColor="Transparent"
                     FontSize="40"
+                    Style="{StaticResource numbersTxt}"
                     Text="5" />
 
                 <Button
                     Grid.Row="2"
                     Grid.Column="2"
-                    BackgroundColor="Transparent"
                     FontSize="40"
+                    Style="{StaticResource numbersTxt}"
                     Text="6" />
 
                 <Button
                     Grid.Row="1"
-                    BackgroundColor="Transparent"
                     FontSize="40"
+                    Style="{StaticResource numbersTxt}"
                     Text="7" />
 
                 <Button
                     Grid.Row="1"
                     Grid.Column="1"
-                    BackgroundColor="Transparent"
                     FontSize="40"
+                    Style="{StaticResource numbersTxt}"
                     Text="8" />
 
                 <Button
                     Grid.Row="1"
                     Grid.Column="2"
-                    BackgroundColor="Transparent"
                     FontSize="40"
+                    Style="{StaticResource numbersTxt}"
                     Text="9" />
             </Grid>
         </Grid>

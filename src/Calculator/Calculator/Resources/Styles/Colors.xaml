@@ -26,6 +26,11 @@
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
 
+    <Color x:Key="MainOrange">#ff8615</Color>
+    <Color x:Key="BtnDarkBackground">#242424</Color>
+    <Color x:Key="MainLightBackground">#f7f7f7</Color>
+
+
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}" />
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}" />
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}" />
